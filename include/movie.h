@@ -1,6 +1,7 @@
-#ifdef MOVIE_H
+#ifndef MOVIE_H
 #define MOVIE_H
 
+#include <string>
 
 class Movie {
     private:
@@ -15,10 +16,10 @@ class Movie {
 
       Movie(std::string t, std::string d, int r, int i, double rate);
 
-      GetTitle() returns title
-      GetDirector() returns title
-      GetRating() returns rating
-      GetRuntime() returns the runtime
+      std::string GetTitle(); // returns title
+      std::string GetDirector(); // returns director
+      double GetRating(); // returns rating
+      int GetRuntime(); // returns the runtime
     
       void PrintMovieData(); // to print details
   };

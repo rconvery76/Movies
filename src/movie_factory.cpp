@@ -1,6 +1,5 @@
 #include "movie_factory.h"
-
-
+#include "movie.h"
 //movie_factory.cpp
  /*
  Write function definition CreateMovies() that 
@@ -21,15 +20,6 @@ std::vector<Movie*> CreateMovies(std::vector<std::string> titles, std::vector<st
         throw std::invalid_argument("All vectors must be of the same size");
     }
 
-    //Validate Runtime, Rating
-    for (int i = 0; i < runtimes.size(); i++) {
-        if (runtimes[i] < 0) {
-            throw std::invalid_argument("Runtime must be >= 0");
-        }
-        if(ratings[i] < 0 || ratings[i] > 10) {
-            throw std::invalid_argument("Rating must be in the range 0-10");
-        }
-    }
 
     //Create Movies using the vectors if all inputs are valid
     std::vector<Movie*> movies;
@@ -38,3 +28,4 @@ std::vector<Movie*> CreateMovies(std::vector<std::string> titles, std::vector<st
         movies.push_back(movie);
     }
     return movies;
+}
