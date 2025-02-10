@@ -17,8 +17,26 @@ returns
   Movie pointer of the best movie.
 */
 
+Movie* FindHighestRatedMovie(std::vector<Movie*> movies) {
+  Movie* highest_rated = movies[0];
+  for (int i = 1; i < movies.size(); i++) {
+    if (movies[i]->GetRating() > highest_rated->GetRating()) {
+      highest_rated = movies[i];
+    }
+  }
+  return highest_rated;
+}
+
 
 // Function `CalculateAverageRuntime` to calculate the average runtime of `movies`
+
+double CalculateAverageRuntime(std::vector<Movie*> movies) {
+  int total_runtime = 0;
+  for (int i = 0; i < movies.size(); i++) {
+    total_runtime += movies[i]->GetRuntime();
+  }
+  return total_runtime / movies.size();
+}
 
 
 int main() {
@@ -33,11 +51,15 @@ int main() {
 
   // Create `movies` using the factory function `CreateMovies`
 
+    std::vector<Movie*> movies = CreateMovies(titles, directors, runtimes, ids, ratings);
+
   // Perform analysis
   // Find `highest_rated` movie using `FindHighestRatedMovie`
+    Movie* highest_rated = FindHighestRatedMovie(movies);
   // Find `average_runtime` using `CalculateAverageRuntime`
-
+    double average_runtime = CalculateAverageRuntime(movies);
   // Print data of the `highest_rated` movie
-  
+    highest_rated->PrintMovieData();
   // Print Average Runtime `average_runtime`
+    std::cout << "Average Runtime: " << average_runtime << std::endl;
 }
