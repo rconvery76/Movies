@@ -23,7 +23,7 @@ std::vector<Movie*> CreateMovies(std::vector<std::string> titles, std::vector<st
 
     //Create Movies using the vectors if all inputs are valid
     std::vector<Movie*> movies;
-    for (int i = 0; i < titles.size(); i++) {
+    for (std::size_t i = 0; i < titles.size(); i++) {
         Movie* movie = new Movie(titles[i], directors[i], runtimes[i], ids[i], ratings[i]);
         movies.push_back(movie);
     }
