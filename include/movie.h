@@ -5,11 +5,11 @@
 
 class Movie {
     private:
-      int id;
     
       std::string title;
       std::string director;
       int runtime; // runtime in minutes >= 0
+      int id;
       double rating; // range 0-10
 
     public:
